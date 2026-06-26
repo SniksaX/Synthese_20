@@ -10,7 +10,7 @@ dotenv.config();
 export const app = express();
 
 app.use(express.json());
-app.use(cors({ origin : process.env.CORS_ALLOW_URL }));
+app.use(cors({ origin : process.env.CORS_ALLOW_URL || "http://localhost:8080"}));
 app.use("/api", router);
 
 const databaseUrl = new URL(process.env.DATABASE_URL);
